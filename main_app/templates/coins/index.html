@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Coin List</h1>
+
+{% for coin in coins %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ coin.name }}</span>
+      <p>Currency: {{ coin.currency }}</p>
+      <p>Description: {{ coin.description }}</p>
+      {% if cat.value > 0 %}
+        <p>Value: {{ cat.age }}</p>
+      {% else %}
+        <p>Value: Less than $0</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
