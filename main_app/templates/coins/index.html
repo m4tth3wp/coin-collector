@@ -9,8 +9,8 @@
       <span class="card-title">{{ coin.name }}</span>
       <p>Currency: {{ coin.currency }}</p>
       <p>Description: {{ coin.description }}</p>
-      {% if cat.value > 0 %}
-        <p>Value: {{ cat.age }}</p>
+      {% if coin.value > 0 %}
+        <p>Value in 1.0 BTC: ${{ coin.value }}</p>
       {% else %}
         <p>Value: Less than $0</p>
       {% endif %}
