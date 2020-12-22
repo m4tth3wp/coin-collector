@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Coin Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ coin.name }}</span>
+    <p>Currency: {{ coin.currency }}</p>
+    <p>Description: {{ coin.description }}</p>
+    {% if coin.value > 0 %}
+      <p>Value in 1.0 BTC: ${{ coin.value }}</p>
+    {% else %}
+      <p>Value in 1.0 BTC: $0</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

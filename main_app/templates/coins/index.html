@@ -5,6 +5,7 @@
 
 {% for coin in coins %}
   <div class="card">
+  <a href="{% url 'detail' coin.id %}">
     <div class="card-content">
       <span class="card-title">{{ coin.name }}</span>
       <p>Currency: {{ coin.currency }}</p>
@@ -15,6 +16,7 @@
         <p>Value: Less than $0</p>
       {% endif %}
     </div>
+  </a>
   </div>
 {% endfor %}
 
