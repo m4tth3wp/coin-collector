@@ -1,11 +1,20 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Coin
 
 # Create your views here.
 class CoinCreate(CreateView):
     model = Coin
     fields = '__all__'
+    success_url = '/coins/'
+
+class CoinUpdate(UpdateView):
+    model = Coin
+    fields = ['description', 'value']
+
+class CoinDelete(DeleteView):
+    model = Coin
+    success_url = '/coins/'
 
 
 # Define the home view

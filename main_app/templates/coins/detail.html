@@ -14,6 +14,10 @@
       <p>Value in 1.0 BTC: $0</p>
     {% endif %}
   </div>
+  <div class="card-action">
+    <a href="{% url 'coins_update' coin.id %}">Edit</a>
+    <a href="{% url 'coins_delete' coin.id %}">Delete</a>
+  </div>
 </div>
 
 {% endblock %}
