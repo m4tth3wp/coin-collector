@@ -1,7 +1,13 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Coin
 
 # Create your views here.
+class CoinCreate(CreateView):
+    model = Coin
+    fields = '__all__'
+
+
 # Define the home view
 def home(request):
   return render(request, 'home.html')
