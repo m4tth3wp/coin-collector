@@ -25,7 +25,7 @@ class Acquired(models.Model):
       choices=ANSWER,
       default=ANSWER[0][1]
     )
-    date = models.DateField()
+    date = models.DateField('acquired date')
 
     coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
 

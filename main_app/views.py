@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Coin
+from .forms import AcquiredForm
 
 # Create your views here.
 class CoinCreate(CreateView):
@@ -30,4 +31,7 @@ def coins_index(request):
 
 def coins_detail(request, coin_id):
     coin = Coin.objects.get(id=coin_id)
-    return render(request, 'coins/detail.html', {'coin': coin})
+    acquired_form = AcquiredForm()
+    return render(request, 'coins/detail.html', {
+        'coin': coin, 'acquired_form': acquired_form
+        })
