@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Coin
 from .forms import AcquiredForm
@@ -35,3 +35,12 @@ def coins_detail(request, coin_id):
     return render(request, 'coins/detail.html', {
         'coin': coin, 'acquired_form': acquired_form
         })
+
+def add_acquired(request, coin_id):
+    form = AcquiredForm(request.POST)
+    #validate the form
+    if form.is_valid():
+        new_acquired = form.save(commit=False)
+        new_acquired.coin_id = coin_id
+        new_acquired.save()
+    return redirect('detail', coin_id=coin_id)
