@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Collector List</h1>
+
+{% for collector in collector_list %}
+  <a href="{% url 'collectors_detail' collector.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ collector.name }}</span>
+            <p>Location: {{ collector.location }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}

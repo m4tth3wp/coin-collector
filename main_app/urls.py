@@ -11,4 +11,9 @@ urlpatterns = [
    path('coins/<int:pk>/update/', views.CoinUpdate.as_view(), name='coins_update'),
    path('coins/<int:pk>/delete/', views.CoinDelete.as_view(), name='coins_delete'),
    path('coins/<int:coin_id>/add_acquired/', views.add_acquired, name='add_acquired'),
+   path('collectors/', views.CollectorList.as_view(), name='collectors_index'),
+   path('collectors/<int:pk>/', views.CollectorDetail.as_view(), name='collectors_detail'),
+   path('collectors/create/', views.CollectorCreate.as_view(), name='collectors_create'),
+   path('collectors/<int:pk>/update/', views.CollectorUpdate.as_view(), name='collectors_update'),
+   path('collectors/<int:pk>/delete/', views.CollectorDelete.as_view(), name='collectors_delete'),
 ]

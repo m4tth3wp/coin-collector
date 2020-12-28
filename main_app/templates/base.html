@@ -20,8 +20,10 @@
         </ul>
         <ul class="right">
           <li><a href="/about">About</a></li>
+          <li><a href="{% url 'collectors_create' %}">Add a Collector</a></li>
+          <li><a href="{% url 'collectors_index' %}">View All Collector</a></li>
           <li><a href="{% url 'coins_create' %}">Add a Coin</a></li>
-          <li><a href="/coins">View All My Coins</a></li>
+          <li><a href="{% url 'index' %}">View All My Coins</a></li>
         </ul>
       </div>
     </nav>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Coin
+from django.views.generic import ListView, DetailView
+from .models import Coin, Collector
 from .forms import AcquiredForm
 
 # Create your views here.
@@ -44,3 +45,21 @@ def add_acquired(request, coin_id):
         new_acquired.coin_id = coin_id
         new_acquired.save()
     return redirect('detail', coin_id=coin_id)
+
+class CollectorList(ListView):
+  model = Collector
+
+class CollectorDetail(DetailView):
+  model = Collector
+
+class CollectorCreate(CreateView):
+  model = Collector
+  fields = '__all__'
+
+class CollectorUpdate(UpdateView):
+  model = Collector
+  fields = ['name', 'location']
+
+class CollectorDelete(DeleteView):
+  model = Collector
+  success_url = '/collectors/'
