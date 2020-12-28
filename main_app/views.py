@@ -32,9 +32,11 @@ def coins_index(request):
 
 def coins_detail(request, coin_id):
     coin = Coin.objects.get(id=coin_id)
+    collectors_coin_doesnt_have = Collector.objects.exclude(id__in = coin.collectors.all().values_list('id'))
     acquired_form = AcquiredForm()
     return render(request, 'coins/detail.html', {
-        'coin': coin, 'acquired_form': acquired_form
+        'coin': coin, 'acquired_form': acquired_form,
+        'collectors': collectors_coin_doesnt_have
         })
 
 def add_acquired(request, coin_id):
@@ -45,6 +47,10 @@ def add_acquired(request, coin_id):
         new_acquired.coin_id = coin_id
         new_acquired.save()
     return redirect('detail', coin_id=coin_id)
+  
+def assoc_collector(request, coin_id, collector_id):
+  Coin.objects.get(id=coin_id).collectors.add(collector_id)
+  return redirect('detail', coin_id=coin_id)
 
 class CollectorList(ListView):
   model = Collector
